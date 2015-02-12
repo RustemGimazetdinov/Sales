@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="OrderItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="IdOrd"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="OrdDate"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="0"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="CustomerItem"
+        Association="FK_Order_Customer"
+        FromEnd="Order"
+        ToEnd="Customer" />
+      <NavigationProperty
+        Name="OrdItemSet"
+        Association="FK_OrdItem_Order"
+        FromEnd="Order"
+        ToEnd="OrdItem" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_OrdItem_Order">
+    <AssociationEnd
+      Name="Order"
+      Multiplicity="One"
+      EntityType="OrderItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="OrdItem"
+      Multiplicity="Many"
+      EntityType="OrdItem" />
+  </Association>
+  <EntityContainer
+    Name="SalesData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Order"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="OrderItem" />
+    <AssociationSet
+      Name="FK_OrdItem_Order"
+      Association="FK_OrdItem_Order">
+      <AssociationSetEnd
+        Name="Order"
+        EntitySet="Order" />
+      <AssociationSetEnd
+        Name="OrdItem"
+        EntitySet="OrdItemSet" />
+    </AssociationSet>
+    <QueryOperation
+      Name="Order_Single"
+      ReturnType="OrderItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdOrd" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdOrd" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Order" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdOrd"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdOrd&quot; сущности, которое требуется получить." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Order_SingleOrDefault"
+      ReturnType="OrderItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами, или null, если такая сущность не существует." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdOrd" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdOrd" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Order" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdOrd"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdOrd&quot; сущности, которое требуется получить." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="SalesDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="Order">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="Order" />
+        <SsdlProperty
+          Name="IdOrd"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="OrderItem/Properties[IdOrd]" />
+        <SsdlProperty
+          Name="OrdDate"
+          Nullable="False"
+          Type="smalldatetime"
+          Property="OrderItem/Properties[OrdDate]" />
+        <SsdlForeignKeyProperty
+          Name="IdCust"
+          Nullable="False"
+          Type="int"
+          PropertyName="IdCust" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_OrdItem_Order">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_OrdItem_Order" />
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_OrdItem_Order]/Members[Order]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdOrd" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_OrdItem_Order]/Members[OrdItem]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdOrd" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

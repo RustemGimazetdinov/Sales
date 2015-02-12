@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="CityItem">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Город" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="IdCity"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+          <DisplayName
+            Value="Код города" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="CityName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="20" />
+          <DisplayName
+            Value="Город" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="Customer"
+        Association="FK_Customer_City"
+        FromEnd="City"
+        ToEnd="Customer" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_Customer_City">
+    <AssociationEnd
+      Name="City"
+      Multiplicity="One"
+      EntityType="CityItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Customer"
+      Multiplicity="Many"
+      EntityType="CustomerItem" />
+  </Association>
+  <EntityContainer
+    Name="SalesData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="CitySet"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="CityItem" />
+    <AssociationSet
+      Name="FK_Customer_City"
+      Association="FK_Customer_City">
+      <AssociationSetEnd
+        Name="City"
+        EntitySet="CitySet" />
+      <AssociationSetEnd
+        Name="Customer"
+        EntitySet="CustomerSet" />
+    </AssociationSet>
+    <QueryOperation
+      Name="CitySet_Single"
+      ReturnType="CityItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdCity" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdCity" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CitySet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdCity"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdCity&quot; сущности, которое требуется получить." />
+          <DisplayName
+            Value="Код города" />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="CitySet_SingleOrDefault"
+      ReturnType="CityItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами, или null, если такая сущность не существует." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdCity" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdCity" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CitySet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdCity"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdCity&quot; сущности, которое требуется получить." />
+          <DisplayName
+            Value="Код города" />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="SalesDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="CitySet">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="City" />
+        <SsdlProperty
+          Name="IdCity"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="CityItem/Properties[IdCity]" />
+        <SsdlProperty
+          MaxLength="20"
+          Name="CityName"
+          Nullable="False"
+          Type="nvarchar"
+          Property="CityItem/Properties[CityName]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_Customer_City">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_Customer_City" />
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_Customer_City]/Members[City]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdCity" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_Customer_City]/Members[Customer]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdCity" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="CustomerItem">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Клиент" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="IdCust"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="FName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="20" />
+          <DisplayName
+            Value="Имя" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="LName"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="20" />
+          <DisplayName
+            Value="Фамилия" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Address"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <DisplayName
+            Value="Адрес" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Zip"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            IsFixedLength="True"
+            Value="5" />
+          <DisplayName
+            Value="Индекс" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Phone"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            IsFixedLength="True"
+            Value="10" />
+          <DisplayName
+            Value="Телефон" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Email"
+        PropertyType="Microsoft.LightSwitch.Extensions:EmailAddress?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="CityItem"
+        Association="FK_Customer_City"
+        FromEnd="Customer"
+        ToEnd="City">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Клиент" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="Order"
+        Association="FK_Order_Customer"
+        FromEnd="Customer"
+        ToEnd="Order">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Заказы" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <EntityProperty
+        Name="Foto"
+        PropertyType="Microsoft.LightSwitch.Extensions:Image?">
+        <EntityProperty.Attributes>
+          <MaxLength />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_Order_Customer">
+    <AssociationEnd
+      Name="Customer"
+      Multiplicity="One"
+      EntityType="CustomerItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Order"
+      Multiplicity="Many"
+      EntityType="OrderItem" />
+  </Association>
+  <EntityContainer
+    Name="SalesData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="CustomerSet"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="CustomerItem" />
+    <AssociationSet
+      Name="FK_Order_Customer"
+      Association="FK_Order_Customer">
+      <AssociationSetEnd
+        Name="Customer"
+        EntitySet="CustomerSet" />
+      <AssociationSetEnd
+        Name="Order"
+        EntitySet="Order" />
+    </AssociationSet>
+    <QueryOperation
+      Name="CustomerSet_Single"
+      ReturnType="CustomerItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdCust" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdCust" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CustomerSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdCust"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdCust&quot; сущности, которое требуется получить." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="CustomerSet_SingleOrDefault"
+      ReturnType="CustomerItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Возвращает сущность, идентификатор которой задан параметрами, или null, если такая сущность не существует." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="IdCust" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="IdCust" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="CustomerSet" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdCust"
+        ParameterType="Microsoft.LightSwitch:Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Значение свойства ключа &quot;IdCust&quot; сущности, которое требуется получить." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="SalesDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="CustomerSet">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="Customer" />
+        <SsdlProperty
+          Name="IdCust"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="CustomerItem/Properties[IdCust]" />
+        <SsdlProperty
+          MaxLength="20"
+          Name="FName"
+          Nullable="False"
+          Type="nvarchar"
+          Property="CustomerItem/Properties[FName]" />
+        <SsdlProperty
+          MaxLength="20"
+          Name="LName"
+          Nullable="False"
+          Type="nvarchar"
+          Property="CustomerItem/Properties[LName]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="Address"
+          Nullable="False"
+          Type="nvarchar"
+          Property="CustomerItem/Properties[Address]" />
+        <SsdlProperty
+          MaxLength="5"
+          Name="Zip"
+          Nullable="False"
+          Type="nchar"
+          Property="CustomerItem/Properties[Zip]" />
+        <SsdlProperty
+          MaxLength="10"
+          Name="Phone"
+          Nullable="True"
+          Type="nchar"
+          Property="CustomerItem/Properties[Phone]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="Email"
+          Nullable="True"
+          Type="varchar"
+          Property="CustomerItem/Properties[Email]" />
+        <SsdlProperty
+          Name="Foto"
+          Nullable="True"
+          Type="varbinary(max)"
+          Property="CustomerItem/Properties[Foto]" />
+        <SsdlForeignKeyProperty
+          Name="IdCity"
+          Nullable="False"
+          Type="int"
+          PropertyName="IdCity" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_Order_Customer">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_Order_Customer" />
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_Order_Customer]/Members[Customer]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdCust" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="SalesData/Members[FK_Order_Customer]/Members[Order]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="IdCust" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

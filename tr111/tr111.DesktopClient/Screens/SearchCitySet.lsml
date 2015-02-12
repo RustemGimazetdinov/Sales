@@ -222,7 +222,7 @@
         PropertyType="CollectionView$CityItem">
         <ScreenCollectionProperty.Attributes>
           <DisplayName
-            Value="Список городов" />
+            Value="Города" />
         </ScreenCollectionProperty.Attributes>
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition

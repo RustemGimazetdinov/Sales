@@ -39,6 +39,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowSearchCitySet"
       Target="!module/Methods[ShowSearchCitySet]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewCustomerItem"
+      Target="!module/Methods[ShowCreateNewCustomerItem]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -51,6 +54,9 @@
       <ApplicationNavigationLink
         Name="SearchCitySet"
         Command="!module/Commands[ScreenCommandShowSearchCitySet]" />
+      <ApplicationNavigationLink
+        Name="CreateNewCustomerItem"
+        Command="!module/Commands[ScreenCommandShowCreateNewCustomerItem]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

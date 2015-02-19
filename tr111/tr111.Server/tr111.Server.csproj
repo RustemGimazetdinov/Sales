@@ -191,6 +191,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSources\SalesData\CityItem.lsml.cs">
+      <DependentUpon>CitySet.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\SalesData\CustomerItem.lsml.cs">
+      <DependentUpon>CustomerSet.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\SalesData\_SalesDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

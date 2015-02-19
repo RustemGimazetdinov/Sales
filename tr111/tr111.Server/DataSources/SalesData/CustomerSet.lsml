@@ -101,11 +101,11 @@
         ToEnd="City">
         <NavigationProperty.Attributes>
           <DisplayName
-            Value="Клиент" />
+            Value="Город" />
         </NavigationProperty.Attributes>
       </NavigationProperty>
       <NavigationProperty
-        Name="Order"
+        Name="OrderSet"
         Association="FK_Order_Customer"
         FromEnd="Customer"
         ToEnd="Order">
@@ -120,6 +120,45 @@
         <EntityProperty.Attributes>
           <MaxLength />
           <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FullName"
+        IsReadOnly="True"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+          <DisplayName
+            Value="ФИО" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="OrdCnt"
+        IsReadOnly="True"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Gender"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            IsFixedLength="True"
+            Value="1" />
+          <AnsiConstraint />
+          <SupportedValue
+            DisplayName="Муж."
+            Value="М" />
+          <SupportedValue
+            DisplayName="Жен."
+            Value="Ж" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>
@@ -299,6 +338,12 @@
           Nullable="True"
           Type="varbinary(max)"
           Property="CustomerItem/Properties[Foto]" />
+        <SsdlProperty
+          MaxLength="1"
+          Name="Gender"
+          Nullable="False"
+          Type="char"
+          Property="CustomerItem/Properties[Gender]" />
         <SsdlForeignKeyProperty
           Name="IdCity"
           Nullable="False"

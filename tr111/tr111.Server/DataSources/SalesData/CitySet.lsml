@@ -43,7 +43,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="Customer"
+        Name="CustomerSet"
         Association="FK_Customer_City"
         FromEnd="City"
         ToEnd="Customer" />

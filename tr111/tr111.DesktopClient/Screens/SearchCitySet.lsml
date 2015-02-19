@@ -95,6 +95,25 @@
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
+                Name="EditCityItem"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="SearchCitySet/Properties[CitySet]" />
+                      <CallExpression
+                        Target="EditSelected">
+                        <CallExpression.Attributes>
+                          <AssociatedCollection
+                            Collection="SearchCitySet/Properties[CitySet]" />
+                        </CallExpression.Attributes>
+                      </CallExpression>
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
                 Name="CitySet_DeleteSelected"
                 Kind="Command">
                 <ContentItem.DataSource>

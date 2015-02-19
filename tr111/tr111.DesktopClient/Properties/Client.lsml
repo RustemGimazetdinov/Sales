@@ -3,6 +3,7 @@
   Name="LightSwitchApplication.tr111.DesktopClient"
   TargetPlatform="RichClient"
   Version="1.0.0.0"
+  DefaultNavigationItem="!module/NavigationItems[Tasks]"
   Shell="Microsoft.LightSwitch.RichClient:Standard"
   Theme="Microsoft.LightSwitch.RichClient:Blue" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
   <Application.Attributes>

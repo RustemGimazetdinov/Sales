@@ -40,4 +40,18 @@
         Value="CanRunCustomerNewScr" />
     </Permission.Attributes>
   </Permission>
+  <Permission
+    Name="CanDeleteCity">
+    <Permission.Attributes>
+      <DisplayName
+        Value="CanRunCustomerNewScr" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="CanAddClient">
+    <Permission.Attributes>
+      <DisplayName
+        Value="CanRunCustomerNewScr" />
+    </Permission.Attributes>
+  </Permission>
 </ServiceApplication>

@@ -41,6 +41,18 @@
         Target="ServiceInterface:CanRunCustomerNewScr" />
     </Permission.Attributes>
   </Permission>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:CanDeleteCity" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:CanAddClient" />
+    </Permission.Attributes>
+  </Permission>
   <Application.Commands>
     <ApplicationCommand
       Name="ScreenCommandShowSearchCitySet"
@@ -48,6 +60,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowCreateNewCustomerItem"
       Target="!module/Methods[ShowCreateNewCustomerItem]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSplashScr"
+      Target="!module/Methods[ShowSplashScr]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -63,6 +78,9 @@
       <ApplicationNavigationLink
         Name="CreateNewCustomerItem"
         Command="!module/Commands[ScreenCommandShowCreateNewCustomerItem]" />
+      <ApplicationNavigationLink
+        Name="SplashScr"
+        Command="!module/Commands[ScreenCommandShowSplashScr]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

@@ -7,6 +7,8 @@ using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
+using Microsoft.LightSwitch.Security;
+
 namespace LightSwitchApplication
 {
     public partial class SearchCitySet
@@ -66,6 +68,22 @@ namespace LightSwitchApplication
         partial void EditSelectedCustAction_CanExecute(ref bool result)
         {
             result = CustomerSet.SelectedItem != null;
+        }
+
+        partial void AddCustAction_CanExecute(ref bool result)
+        {
+            result = Application.Current.User.HasPermission(Permissions.CanAddClient) &&
+                     this.CitySet.SelectedItem.CityName != "Москва";
+
+        }
+
+        partial void Method_Execute()
+        {
+            var users = DataWorkspace.SecurityData.UserRegistrations.Cast<UserRegistration>();
+            foreach (var u in users)
+            {
+                this.ShowMessageBox(u.UserName);
+            }
         }
     }
 }

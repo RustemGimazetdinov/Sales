@@ -654,6 +654,18 @@
               </ScreenExpressionTree>
             </ContentItem.DataSource>
           </ContentItem>
+          <ContentItem
+            Name="Method"
+            Kind="Command">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="SearchCitySet/Methods[Method]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
         </ContentItem.CommandItems>
       </ContentItem>
     </Screen.RootContentItem>
@@ -706,6 +718,8 @@
         Name="CancelEdCustAction" />
       <ScreenMethod
         Name="EditSelectedCustAction" />
+      <ScreenMethod
+        Name="Method" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty

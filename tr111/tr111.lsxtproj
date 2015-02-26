@@ -20,7 +20,7 @@
     <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
     <ApplicationClientType>Desktop</ApplicationClientType>
     <ApplicationServerType>LocalHost</ApplicationServerType>
-    <AuthenticationType>Forms</AuthenticationType>
+    <AuthenticationType>None</AuthenticationType>
     <ApplicationName>tr111</ApplicationName>
     <AssemblyVersion>1.0.7.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>

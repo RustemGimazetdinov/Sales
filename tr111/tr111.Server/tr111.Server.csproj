@@ -15,8 +15,8 @@
     <AssemblyName>Application.Server</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <LightSwitchVersion>v4.5</LightSwitchVersion>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <SupportedCultures>en-US</SupportedCultures>
+    <DefaultLanguage>ru</DefaultLanguage>
+    <SupportedCultures>ru</SupportedCultures>
     <FileAlignment>512</FileAlignment>
     <IgnoreDeployManagedRuntimeVersion>True</IgnoreDeployManagedRuntimeVersion>
     <UseDeclareParametersXMLInMsDeploy>False</UseDeclareParametersXMLInMsDeploy>
@@ -247,7 +247,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53316/</IISUrl>
+          <IISUrl>http://localhost:53509/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

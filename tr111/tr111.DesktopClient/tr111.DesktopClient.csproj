@@ -19,7 +19,7 @@
     <LightSwitchVersion>v4.5</LightSwitchVersion>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightApplication>true</SilverlightApplication>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <DefaultLanguage>ru</DefaultLanguage>
     <SupportedCultures>ru</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>

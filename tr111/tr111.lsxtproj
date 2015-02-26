@@ -30,8 +30,8 @@
     <AdministratorFullName>Admin</AdministratorFullName>
     <AdministratorUserName>Admin</AdministratorUserName>
     <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
-    <DeployDatabase>False</DeployDatabase>
-    <AddAdministrator>False</AddAdministrator>
+    <DeployDatabase>True</DeployDatabase>
+    <AddAdministrator>True</AddAdministrator>
     <BootstrapperComponentsUrl />
     <DefaultInstallLocation>tr111</DefaultInstallLocation>
     <DeploySchema>True</DeploySchema>
@@ -56,6 +56,7 @@
     <SharePointServerToServerCertificatePath />
     <SharePointServerToServerCertificateIssuerId />
     <RequireSecureConnection>True</RequireSecureConnection>
+    <DefaultLanguage>ru</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>bin\Debug</OutputPath>
@@ -168,7 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <PublishParameter Include="SalesData">
-      <Value>Data Source=SalesDataBase.mssql.somee.com;Initial Catalog=SalesDataBase;User ID=trp111;Password=trp111pass</Value>
+      <Value>
+      </Value>
     </PublishParameter>
   </ItemGroup>
   <ItemGroup>

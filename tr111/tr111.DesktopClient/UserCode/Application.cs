@@ -13,8 +13,12 @@ namespace LightSwitchApplication
     {
         partial void SearchCitySet_CanRun(ref bool result)
         {
-            // Присвоение результату значения нужного поля
+            result = Current.User.HasPermission("SecurityAdministration");
+        }
 
+        partial void CreateNewCustomerItem_CanRun(ref bool result)
+        {
+            result = Current.User.HasPermission("CanRunCustomerNewScr");
         }
     }
 }

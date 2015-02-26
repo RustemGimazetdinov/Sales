@@ -35,6 +35,12 @@
         Target="ServiceInterface:LightSwitchServiceApplicationGroup" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Permission>
+    <Permission.Attributes>
+      <Proxy
+        Target="ServiceInterface:CanRunCustomerNewScr" />
+    </Permission.Attributes>
+  </Permission>
   <Application.Commands>
     <ApplicationCommand
       Name="ScreenCommandShowSearchCitySet"

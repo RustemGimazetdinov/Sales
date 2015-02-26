@@ -22,7 +22,7 @@
     <ApplicationServerType>LocalHost</ApplicationServerType>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>tr111</ApplicationName>
-    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <AssemblyVersion>1.0.7.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>(LocalDB)\v11.0</SqlExpressInstanceName>
@@ -30,8 +30,8 @@
     <AdministratorFullName>Admin</AdministratorFullName>
     <AdministratorUserName>Admin</AdministratorUserName>
     <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
-    <DeployDatabase>True</DeployDatabase>
-    <AddAdministrator>True</AddAdministrator>
+    <DeployDatabase>False</DeployDatabase>
+    <AddAdministrator>False</AddAdministrator>
     <BootstrapperComponentsUrl />
     <DefaultInstallLocation>tr111</DefaultInstallLocation>
     <DeploySchema>True</DeploySchema>
@@ -168,8 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <PublishParameter Include="SalesData">
-      <Value>
-      </Value>
+      <Value>Data Source=SalesDataBase.mssql.somee.com;Initial Catalog=SalesDataBase;User ID=trp111;Password=trp111pass</Value>
     </PublishParameter>
   </ItemGroup>
   <ItemGroup>

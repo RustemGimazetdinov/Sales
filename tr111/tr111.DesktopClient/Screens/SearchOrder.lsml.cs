@@ -13,7 +13,7 @@ namespace LightSwitchApplication
     {
         partial void Order_Validate(ScreenValidationResultsBuilder results)
         {
-            results.AddScreenError("dfgdh");
+             //results.AddScreenError("dfgdh");
             // results.AddPropertyError("<Сообщение об ошибке>");
 
         }

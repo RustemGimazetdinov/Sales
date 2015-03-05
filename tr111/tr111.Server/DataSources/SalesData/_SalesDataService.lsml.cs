@@ -28,8 +28,17 @@ namespace LightSwitchApplication
 
         partial void Order_Validate(OrderItem entity, EntitySetValidationResultsBuilder results)
         {
-            if (entity.OrdDate < DateTime.Today.AddDays(-5))
-                results.AddEntityError("База закрыта");
+            if (entity.Details.Properties.OrdDate..EntityState == EntityState.Deleted && entity.OrdItemSet.Any())
+                results.AddEntityError("Возможно удаление только пустого заказа");
+        }
+
+        partial void Order_Deleting(OrderItem entity)
+        {
+            var vr = entity.Details.ValidationResults;
+            if (vr.HasErrors)
+            {
+                throw new ValidationException(null, null, entity.Details.ValidationResults);
+            }
         }
     }
 }

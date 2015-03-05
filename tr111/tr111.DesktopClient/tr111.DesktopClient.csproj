@@ -235,12 +235,21 @@
     <Compile Include="..\tr111.Server\DataSources\SalesData\CustomerItem.lsml.cs">
       <Link>UserCode\Shared\CustomerItem.lsml.cs</Link>
     </Compile>
+    <Compile Include="..\tr111.Server\DataSources\SalesData\OrderItem.lsml.cs">
+      <Link>UserCode\Shared\OrderItem.lsml.cs</Link>
+    </Compile>
+    <Compile Include="..\tr111.Server\DataSources\SalesData\OrdItem.lsml.cs">
+      <Link>UserCode\Shared\OrdItem.lsml.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\CreateNewCustomerItem.lsml.cs">
       <DependentUpon>CreateNewCustomerItem.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\SearchCitySet.lsml.cs">
       <DependentUpon>SearchCitySet.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SearchOrder.lsml.cs">
+      <DependentUpon>SearchOrder.lsml</DependentUpon>
     </Compile>
     <Compile Include="UserCode\Application.cs" />
   </ItemGroup>
@@ -256,6 +265,9 @@
     <LightSwitchModel Include="Properties\SalesData\CustomerSet.lsml" />
     <LightSwitchModel Include="Screens\CreateNewCustomerItem.lsml" />
     <LightSwitchModel Include="Screens\SplashScr.lsml" />
+    <LightSwitchModel Include="Screens\SearchOrder.lsml" />
+    <LightSwitchModel Include="Properties\SalesData\OrdItemSet.lsml" />
+    <LightSwitchModel Include="Properties\SalesData\Order.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

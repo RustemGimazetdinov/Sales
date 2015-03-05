@@ -24,6 +24,9 @@
     <EntityContainerGroupProperty
       Name="SalesData"
       EntityContainer="SalesData" />
+    <EntityContainerGroupProperty
+      Name="ApplicationData"
+      EntityContainer="ApplicationData" />
   </EntityContainerGroup>
   <GlobalAttributeGroup
     Name="LightSwitchServiceApplicationGroup">

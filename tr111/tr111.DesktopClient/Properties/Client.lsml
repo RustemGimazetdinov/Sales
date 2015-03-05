@@ -28,6 +28,9 @@
     <EntityContainerGroupProperty
       Name="SalesData"
       EntityContainer="SalesData" />
+    <EntityContainerGroupProperty
+      Name="ApplicationData"
+      EntityContainer="ApplicationData" />
   </EntityContainerGroup>
   <GlobalAttributeGroup>
     <GlobalAttributeGroup.Attributes>
@@ -63,6 +66,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowSplashScr"
       Target="!module/Methods[ShowSplashScr]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSearchOrder"
+      Target="!module/Methods[ShowSearchOrder]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -81,6 +87,9 @@
       <ApplicationNavigationLink
         Name="SplashScr"
         Command="!module/Commands[ScreenCommandShowSplashScr]" />
+      <ApplicationNavigationLink
+        Name="SearchOrder"
+        Command="!module/Commands[ScreenCommandShowSearchOrder]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

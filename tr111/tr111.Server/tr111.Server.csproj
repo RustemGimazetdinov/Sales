@@ -197,6 +197,12 @@
     <Compile Include="DataSources\SalesData\CustomerItem.lsml.cs">
       <DependentUpon>CustomerSet.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\SalesData\OrderItem.lsml.cs">
+      <DependentUpon>Order.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSources\SalesData\OrdItem.lsml.cs">
+      <DependentUpon>OrdItemSet.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\SalesData\_SalesDataService.lsml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,6 +221,8 @@
     <LightSwitchModel Include="DataSources\SalesData\OrdItemSet.lsml" />
     <LightSwitchModel Include="DataSources\SalesData\Product.lsml" />
     <LightSwitchModel Include="Properties\DataSources\SalesData.lsml" />
+    <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Table1ItemSet.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

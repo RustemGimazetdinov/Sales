@@ -22,8 +22,14 @@ namespace LightSwitchApplication
 
         partial void CitySet_Filter(ref Expression<Func<CityItem, bool>> filter)
         {
-            filter = city => city.CityName.StartsWith("Ка");
+            //filter = city => city.CityName.StartsWith("Ка");
 
+        }
+
+        partial void Order_Validate(OrderItem entity, EntitySetValidationResultsBuilder results)
+        {
+            if (entity.OrdDate < DateTime.Today.AddDays(-5))
+                results.AddEntityError("База закрыта");
         }
     }
 }

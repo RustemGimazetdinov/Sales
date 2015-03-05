@@ -7,23 +7,14 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:CustomerItem" />
-      <SummaryProperty
-        Property="CustomerItem/Properties[FullName]" />
+        Target="ServiceInterface:OrderItem" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <EntityProperty>
         <EntityProperty.Attributes>
           <Computed />
           <Proxy
-            Target="LightSwitchServiceApplication:CustomerItem/Properties[FullName]" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty>
-        <EntityProperty.Attributes>
-          <Computed />
-          <Proxy
-            Target="LightSwitchServiceApplication:CustomerItem/Properties[OrdCnt]" />
+            Target="LightSwitchServiceApplication:OrderItem/Properties[Amount]" />
         </EntityProperty.Attributes>
       </EntityProperty>
     </EntityType.Properties>

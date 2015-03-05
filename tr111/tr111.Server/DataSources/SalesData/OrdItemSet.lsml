@@ -60,6 +60,16 @@
         Association="FK_OrdItem_Product"
         FromEnd="OrdItem"
         ToEnd="Product" />
+      <EntityProperty
+        Name="Sum"
+        IsReadOnly="True"
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <EntityContainer

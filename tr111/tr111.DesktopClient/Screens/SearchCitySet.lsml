@@ -21,6 +21,19 @@
           Name="ScreenLayout"
           Kind="Group">
           <ContentItem
+            Name="chars"
+            Kind="Value"
+            DataType=":String">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="SearchCitySet/Properties[chars]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem
             Name="grid"
             Kind="Collection"
             DataType="CollectionView$CityItem">
@@ -58,6 +71,16 @@
                 Name="CityName"
                 Kind="Value"
                 DataType=":String">
+                <ContentItem.Attributes>
+                  <ShowAsLinkSettings
+                    Value="CityItemDetail">
+                    <ShowAsLinkSettings.Attributes>
+                      <ScreenParameterMapping
+                        KeyProperty="CityItem/Properties[IdCity]"
+                        ScreenParameter="CityItemDetail/Properties[CityItemIdCity]" />
+                    </ShowAsLinkSettings.Attributes>
+                  </ShowAsLinkSettings>
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -724,6 +747,7 @@
     <Screen.Properties>
       <ScreenCollectionProperty
         Name="CitySet"
+        DisableSorting="True"
         PageSize="45"
         PropertyType="CollectionView$CityItem">
         <ScreenCollectionProperty.Attributes>
@@ -735,7 +759,21 @@
             Name="CitySetQuery"
             ReturnType="CityItem*">
             <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="Contains">
+                  <BinaryExpression.Left>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="CityItem/Properties[CityName]" />
+                    </ChainExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <ParameterExpression
+                      Parameter="chars" />
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
@@ -743,12 +781,26 @@
                   Member="SalesData/Members[CitySet]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="chars"
+                IsOptional="True"
+                ParameterType=":String?" />
+            </ScreenQueryDefinition.Parameters>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="SearchCitySet/Properties[CitySet]/Query" />
+              Target="SearchCitySet/Properties[CitySet]/Query">
+              <ArgumentExpression
+                Parameter="chars">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="SearchCitySet/Properties[chars]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -784,6 +836,13 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="chars"
+        PropertyType=":String">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>

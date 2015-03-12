@@ -242,8 +242,14 @@
       <Link>UserCode\Shared\OrdItem.lsml.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\CityItemDetail.lsml.cs">
+      <DependentUpon>CityItemDetail.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\CreateNewCustomerItem.lsml.cs">
       <DependentUpon>CreateNewCustomerItem.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Search.lsml.cs">
+      <DependentUpon>Search.lsml</DependentUpon>
     </Compile>
     <Compile Include="Screens\SearchCitySet.lsml.cs">
       <DependentUpon>SearchCitySet.lsml</DependentUpon>
@@ -268,6 +274,9 @@
     <LightSwitchModel Include="Screens\SearchOrder.lsml" />
     <LightSwitchModel Include="Properties\SalesData\OrdItemSet.lsml" />
     <LightSwitchModel Include="Properties\SalesData\Order.lsml" />
+    <LightSwitchModel Include="Screens\CityItemDetail.lsml" />
+    <LightSwitchModel Include="Properties\SalesData\CitySet.lsml" />
+    <LightSwitchModel Include="Screens\Search.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -28,8 +28,8 @@ namespace LightSwitchApplication
 
         partial void Order_Validate(OrderItem entity, EntitySetValidationResultsBuilder results)
         {
-            if (entity.Details.Properties.OrdDate..EntityState == EntityState.Deleted && entity.OrdItemSet.Any())
-                results.AddEntityError("Возможно удаление только пустого заказа");
+            //if (entity.Details.Properties.OrdDate.EntityState == EntityState.Deleted && entity.OrdItemSet.Any())
+            //    results.AddEntityError("Возможно удаление только пустого заказа");
         }
 
         partial void Order_Deleting(OrderItem entity)
@@ -39,6 +39,33 @@ namespace LightSwitchApplication
             {
                 throw new ValidationException(null, null, entity.Details.ValidationResults);
             }
+        }
+
+        partial void Query1_CanExecute(ref bool result)
+        {
+
+        }
+
+        partial void Query1_PreprocessQuery(int? IdCust, bool? hasfilter, ref IQueryable<OrderItem> query)
+        {
+            if (hasfilter.Value)
+                query =
+                    from ord in query
+                    where ord.OrdItemSet.Any()
+                    orderby ord.OrdDate descending 
+                    select ord;
+                    
+                    //query.Where(ord => ord.OrdItemSet.Any());
+        }
+
+        partial void Query_Executing(QueryExecutingDescriptor queryDescriptor)
+        {
+
+        }
+
+        partial void Query_Executed(QueryExecutedDescriptor queryDescriptor)
+        {
+
         }
     }
 }

@@ -19,6 +19,33 @@
           Name="ScreenLayout"
           Kind="Group">
           <ContentItem
+            Name="hasfilter"
+            Kind="Value"
+            DataType=":Boolean">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="SearchOrder/Properties[hasfilter]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem
+            Name="Property1"
+            Kind="Value"
+            DataType=":String"
+            View="Microsoft.LightSwitch.RichClient:Label">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="SearchOrder/Properties[Property1]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem
             Name="grid"
             Kind="Collection"
             DataType="CollectionView$OrderItem">
@@ -144,6 +171,18 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
+              <ContentItem
+                Name="Method"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="SearchOrder/Methods[Method]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
             </ContentItem.CommandItems>
             <ContentItem.PropertySources>
               <ControlPropertySource
@@ -177,135 +216,6 @@
                 </ScreenExpressionTree>
               </ControlPropertySource>
             </ContentItem.PropertySources>
-          </ContentItem>
-          <ContentItem
-            Name="OrdItemSet"
-            Kind="Collection"
-            DataType="CollectionView$OrdItem">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression
-                    Member="SearchOrder/Properties[OrdItemSet]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem
-              Name="OrdItemSetTemplate"
-              Kind="Details"
-              DataType="OrdItem">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression />
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem
-                Name="ProductItem"
-                Kind="Details"
-                DataType="ProductItem">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="OrdItem/Properties[ProductItem]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="ProductItem1"
-                  Kind="Details"
-                  DataType="ProductItem">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-              <ContentItem
-                Name="Qty"
-                Kind="Value"
-                DataType=":Int32">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="OrdItem/Properties[Qty]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Price"
-                Kind="Value"
-                DataType=":Decimal">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="OrdItem/Properties[Price]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="Sum"
-                Kind="Value"
-                DataType="Microsoft.LightSwitch.Extensions:Money">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="OrdItem/Properties[Sum]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem>
-            <ContentItem.CommandItems>
-              <ContentItem
-                Name="OrdItemSet_AddAndEditNew"
-                Kind="Command">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="SearchOrder/Properties[OrdItemSet]" />
-                      <CallExpression
-                        Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="OrdItemSet_EditSelected"
-                Kind="Command">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="SearchOrder/Properties[OrdItemSet]" />
-                      <CallExpression
-                        Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
-                Name="OrdItemSet_DeleteSelected"
-                Kind="Command">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="SearchOrder/Properties[OrdItemSet]" />
-                      <CallExpression
-                        Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
           </ContentItem>
         </ContentItem>
         <ContentItem.CommandItems>
@@ -365,6 +275,8 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="Method" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
@@ -381,7 +293,7 @@
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="SalesData/Members[Order]" />
+                  Member="SalesData/Members[Query1]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -389,42 +301,34 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="SearchOrder/Properties[Order]/Query" />
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenCollectionProperty
-        Name="OrdItemSet"
-        PageSize="45"
-        PropertyType="CollectionView$OrdItem">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition
-            Name="OrdItemSetQuery"
-            ReturnType="OrdItem*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
+              Target="SearchOrder/Properties[Order]/Query">
+              <ArgumentExpression
+                Parameter="IdCust" />
+              <ArgumentExpression
+                Parameter="hasfilter">
                 <ChainExpression>
                   <MemberExpression
-                    Member="SearchOrder/Properties[Order]" />
-                  <MemberExpression
-                    Member="SelectedItem" />
-                  <MemberExpression
-                    Member="OrdItemSet" />
+                    Member="SearchOrder/Properties[hasfilter]" />
                 </ChainExpression>
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression
-              Target="SearchOrder/Properties[OrdItemSet]/Query" />
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="hasfilter"
+        PropertyType=":Boolean">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+      <ScreenProperty
+        Name="Property1"
+        PropertyType=":String">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>

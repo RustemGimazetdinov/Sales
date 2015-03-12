@@ -17,5 +17,10 @@ namespace LightSwitchApplication
             // results.AddPropertyError("<Сообщение об ошибке>");
 
         }
+
+        partial void Method_Execute()
+        {
+            Property1 = Order.SelectedItem.OrdItemSetQuery.Where(t => t.Price > 100).Execute().Count().ToString();
+        }
     }
 }

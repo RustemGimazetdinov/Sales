@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityContainer
+    Name="SalesData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <QueryOperation
+      Name="Query1"
+      ReturnType="OrderItem*">
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree />
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Order" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="IdCust"
+        IsOptional="True"
+        ParameterType=":Int32?" />
+      <QueryOperationParameter
+        Name="hasfilter"
+        ParameterType=":Boolean?" />
+    </QueryOperation>
+  </EntityContainer>
+</ServiceApplication>

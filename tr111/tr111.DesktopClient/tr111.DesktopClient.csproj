@@ -248,6 +248,12 @@
     <Compile Include="Screens\CreateNewCustomerItem.lsml.cs">
       <DependentUpon>CreateNewCustomerItem.lsml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\CreateNewProductItem.lsml.cs">
+      <DependentUpon>CreateNewProductItem.lsml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\EditableOrderGrid.lsml.cs">
+      <DependentUpon>EditableOrderGrid.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Search.lsml.cs">
       <DependentUpon>Search.lsml</DependentUpon>
     </Compile>
@@ -277,6 +283,8 @@
     <LightSwitchModel Include="Screens\CityItemDetail.lsml" />
     <LightSwitchModel Include="Properties\SalesData\CitySet.lsml" />
     <LightSwitchModel Include="Screens\Search.lsml" />
+    <LightSwitchModel Include="Screens\EditableOrderGrid.lsml" />
+    <LightSwitchModel Include="Screens\CreateNewProductItem.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

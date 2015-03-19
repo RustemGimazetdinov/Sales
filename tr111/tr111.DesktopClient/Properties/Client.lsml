@@ -72,6 +72,12 @@
     <ApplicationCommand
       Name="ScreenCommandShowSearch"
       Target="!module/Methods[ShowSearch]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowEditableOrderGrid"
+      Target="!module/Methods[ShowEditableOrderGrid]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewProductItem"
+      Target="!module/Methods[ShowCreateNewProductItem]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -96,6 +102,12 @@
       <ApplicationNavigationLink
         Name="Search"
         Command="!module/Commands[ScreenCommandShowSearch]" />
+      <ApplicationNavigationLink
+        Name="EditableOrderGrid"
+        Command="!module/Commands[ScreenCommandShowEditableOrderGrid]" />
+      <ApplicationNavigationLink
+        Name="CreateNewProductItem"
+        Command="!module/Commands[ScreenCommandShowCreateNewProductItem]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

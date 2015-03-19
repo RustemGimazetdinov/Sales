@@ -19,8 +19,8 @@ namespace LightSwitchApplication
 
         partial void Foto_Validate(EntityValidationResultsBuilder results)
         {
-            if (this.Foto.Length/1024 > 512)
-                results.AddPropertyResult("Слишком большой файл", ValidationSeverity.Informational);
+            //if (this.Foto.Length/1024 > 512)
+                //results.AddPropertyResult("Слишком большой файл", ValidationSeverity.Informational);
 
         }
     }

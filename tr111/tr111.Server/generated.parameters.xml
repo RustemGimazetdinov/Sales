@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DatabaseAdministratorConnectionString" description="Подключение, используемое для создания или обновления базы данных приложения." defaultValue="" tags="SQLConnectionString" />
+  <parameter name="DatabaseServer" description="Имя сервера, на котором размещается база данных приложения. Должно соответствовать серверу, указанному в строке подключения." defaultValue="" tags="SQL" />
+  <parameter name="DatabaseName" description="Имя базы данных приложения. Должно соответствовать базе данных, указанной в строке подключения." defaultValue="tr111" tags="SQL">
+    <parameterEntry kind="SqlCommandVariable" scope="tr111.sql" match="DatabaseName" />
+  </parameter>
+  <parameter name="DatabaseUserName" description="Имя пользователя, которое будет использоваться приложением для подключения к базе данных приложения." defaultValue="" tags="SQL">
+    <parameterEntry kind="SqlCommandVariable" scope="tr111.sql" match="DatabaseUserName" />
+  </parameter>
+  <parameter name="DatabaseUserPassword" description="Пароль для имени пользователя базы данных." defaultValue="" tags="SQL,Password,New">
+    <parameterEntry kind="SqlCommandVariable" scope="tr111.sql" match="DatabaseUserPassword" />
+  </parameter>
+  <parameter name="DefaultDataPath" description="" defaultValue="" tags="SQL,Hidden">
+    <parameterEntry kind="SqlCommandVariable" scope="tr111.sql" match="DefaultDataPath" />
+  </parameter>
+  <parameter name="dbFullSql_Path" description="" defaultValue="{DatabaseAdministratorConnectionString}" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="dbFullSql" match="tr111.sql" />
+  </parameter>
+  <parameter name="Update web.config connection string" description="" defaultValue="Data Source={DatabaseServer};Database={DatabaseName};uid={DatabaseUserName};Pwd={DatabaseUserPassword};" tags="Hidden">
+    <parameterEntry kind="XmlFile" scope="web.config" match="//connectionStrings/add[@name='_IntrinsicData']/@connectionString" />
+  </parameter>
+  <parameter name="tr111_IisWebApplication" description="Расположение содержимого веб-приложения IIS" defaultValue="Default Web Site/tr111" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\LSProject\\tr111\\tr111\\bin\\Release\\app\.publish\\$" />
+  </parameter>
+  <parameter name="SalesData" description="Настройка ConnectionString" defaultValue="data source=localhost;initial catalog=Test;user id=trp111;password=trp111" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="web.config" match="/configuration/connectionStrings/add[@name='SalesData']/@connectionString" />
+  </parameter>
+  <parameter name="Имя пользователя администратора приложения" description="Имя пользователя, который будет определять пользователей и роли в приложении." defaultValue="" tags="applicationSettings">
+    <parameterEntry kind="XmlFile" scope="web.config" match="//appSettings/add[@key='Microsoft.LightSwitch.Admin.UserName' and @value='AdministratorUserName']/@value" />
+  </parameter>
+  <parameter name="Полное имя администратора приложения" description="Полное имя пользователя, который будет определять пользователей и роли в приложении." defaultValue="" tags="applicationSettings">
+    <parameterEntry kind="XmlFile" scope="web.config" match="//appSettings/add[@key='Microsoft.LightSwitch.Admin.FullName' and @value='AdministratorFullName']/@value" />
+  </parameter>
+  <parameter name="Пароль администратора приложения" description="Пароль пользователя, который будет определять пользователей и роли в приложении." defaultValue="" tags="Password,New,applicationSettings">
+    <parameterValidation kind="RegularExpression" validationString="^(?=.{7,})(?=(.*[\W\p{Pc}].*){1,})" />
+    <parameterEntry kind="XmlFile" scope="web.config" match="//appSettings/add[@key='Microsoft.LightSwitch.Admin.Password' and @value='AdministratorPassword']/@value" />
+  </parameter>
+</parameters>

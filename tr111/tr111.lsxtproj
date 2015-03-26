@@ -135,6 +135,12 @@
       <Private>True</Private>
       <Type>Client</Type>
     </ProjectReference>
+    <ProjectReference Include="tr111.HTMLClient\tr111.HTMLClient.jsproj">
+      <Name>tr111.HTMLClient</Name>
+      <Project>{4d4182cc-b993-4f14-90df-95c4024ff695}</Project>
+      <Private>True</Private>
+      <Type>Client</Type>
+    </ProjectReference>
     <ProjectReference Include="tr111.Server\tr111.Server.csproj">
       <Name>tr111.Server</Name>
       <Project>{79083cbf-c8b8-4bb6-ac06-3c6897df7ff3}</Project>

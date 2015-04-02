@@ -29,7 +29,7 @@
     <SilverlightAppEntry>
     </SilverlightAppEntry>
     <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
-    <EnableOutOfBrowser>True</EnableOutOfBrowser>
+    <EnableOutOfBrowser>False</EnableOutOfBrowser>
     <TestPageFileName>default.htm</TestPageFileName>
     <CreateTestPage>false</CreateTestPage>
     <ValidateXaml>true</ValidateXaml>

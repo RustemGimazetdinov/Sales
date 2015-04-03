@@ -28,6 +28,9 @@
     <EntityContainerGroupProperty
       Name="SalesData"
       EntityContainer="SalesData" />
+    <EntityContainerGroupProperty
+      Name="ApplicationData"
+      EntityContainer="ApplicationData" />
   </EntityContainerGroup>
   <GlobalAttributeGroup>
     <GlobalAttributeGroup.Attributes>
@@ -63,6 +66,18 @@
     <ApplicationCommand
       Name="ScreenCommandShowSplashScr"
       Target="!module/Methods[ShowSplashScr]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSearchOrder"
+      Target="!module/Methods[ShowSearchOrder]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSearch"
+      Target="!module/Methods[ShowSearch]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowEditableOrderGrid"
+      Target="!module/Methods[ShowEditableOrderGrid]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewProductItem"
+      Target="!module/Methods[ShowCreateNewProductItem]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -81,6 +96,18 @@
       <ApplicationNavigationLink
         Name="SplashScr"
         Command="!module/Commands[ScreenCommandShowSplashScr]" />
+      <ApplicationNavigationLink
+        Name="SearchOrder"
+        Command="!module/Commands[ScreenCommandShowSearchOrder]" />
+      <ApplicationNavigationLink
+        Name="Search"
+        Command="!module/Commands[ScreenCommandShowSearch]" />
+      <ApplicationNavigationLink
+        Name="EditableOrderGrid"
+        Command="!module/Commands[ScreenCommandShowEditableOrderGrid]" />
+      <ApplicationNavigationLink
+        Name="CreateNewProductItem"
+        Command="!module/Commands[ScreenCommandShowCreateNewProductItem]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

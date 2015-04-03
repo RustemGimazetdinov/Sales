@@ -46,6 +46,16 @@
         Association="FK_OrdItem_Order"
         FromEnd="Order"
         ToEnd="OrdItem" />
+      <EntityProperty
+        Name="Amount"
+        IsReadOnly="True"
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <Association

@@ -8,6 +8,8 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:CustomerItem" />
+      <SummaryProperty
+        Property="CustomerItem/Properties[FullName]" />
     </EntityType.Attributes>
     <EntityType.Properties>
       <EntityProperty>

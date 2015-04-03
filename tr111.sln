@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tr111.Server", "tr111\tr111
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tr111.DesktopClient", "tr111\tr111.DesktopClient\tr111.DesktopClient.csproj", "{800D0DCB-F050-4CC9-9FB1-2CA331727444}"
 EndProject
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "tr111.HTMLClient", "tr111\tr111.HTMLClient\tr111.HTMLClient.jsproj", "{4D4182CC-B993-4F14-90DF-95C4024FF695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{800D0DCB-F050-4CC9-9FB1-2CA331727444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{800D0DCB-F050-4CC9-9FB1-2CA331727444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{800D0DCB-F050-4CC9-9FB1-2CA331727444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4182CC-B993-4F14-90DF-95C4024FF695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4182CC-B993-4F14-90DF-95C4024FF695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4182CC-B993-4F14-90DF-95C4024FF695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4182CC-B993-4F14-90DF-95C4024FF695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

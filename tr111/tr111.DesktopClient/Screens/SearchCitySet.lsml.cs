@@ -3,11 +3,14 @@ using System.Linq;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Collections.Generic;
+using System.Windows.Controls;
+using System.Windows.Media;
 using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
 using Microsoft.LightSwitch.Security;
+using Microsoft.LightSwitch.Threading;
 
 namespace LightSwitchApplication
 {
@@ -84,6 +87,36 @@ namespace LightSwitchApplication
             {
                 this.ShowMessageBox(u.UserName);
             }
+        }
+
+        partial void Method1_Execute()
+        {
+            this.FindControl("LName").ControlAvailable += OnControlAvailable;
+
+
+            // Добавьте сюда свой код.
+
+        }
+
+        private void OnControlAvailable(object sender, ControlAvailableEventArgs args)
+        {
+            var tb = (TextBox) args.Control;
+            tb.Background = new SolidColorBrush(Colors.Magenta);
+            tb.FontSize = 18;
+            tb.MaxLength = 10;
+            tb.TextChanged += (o, txtargs) =>
+            {
+                this.LNameLenProperty=tb.Text.Length.ToString();
+            };
+        }
+
+        partial void Method2_Execute()
+        {
+            Dispatchers.Main.BeginInvoke(() =>
+            {
+                var ofd = new OpenFileDialog();
+                ofd.ShowDialog();
+            });
         }
     }
 }
